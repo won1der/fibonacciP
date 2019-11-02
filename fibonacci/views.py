@@ -1,12 +1,13 @@
 from django.http import HttpResponse
+import time
 
 def calculateFibnacci(n):
-    first=0
+    first=1
     second=1
     num = 0
 
     if(n==1):
-      return 0
+      return 1
     if(n==2):
        return 1
     else:
@@ -19,14 +20,16 @@ def calculateFibnacci(n):
 
 def fibonacci(request):
     if request.method == "POST":
+        start_t=time.time()
         nth = request.POST.get('nth', 'null')
         if (nth == 'null'):
             return HttpResponse('Value of n is incorrect')
         answer = calculateFibnacci(int(nth))
-        return HttpResponse(answer)
+        end_t=time.time()-start_t
+        s=""+str(n)+"th Fibonacci number is "+str(answer)+".  Time required in computation is"+str(end_t)
+        return HttpResponse(s)
 
     else:
         return HttpResponse('Network Problem')
-
 
 
