@@ -26,7 +26,7 @@ def fibonacci(request):
             return HttpResponse('Value of n is incorrect')
         answer = calculateFibnacci(int(nth))
         end_t=time.time()-start_t
-        s=""+str(n)+"th Fibonacci number is "+str(answer)+".  Time required in computation is"+str(end_t)
+        s=""+nth+"th Fibonacci number is "+str(answer)+".  Time required in computation is"+str(end_t)
         return HttpResponse(s)
 
     else:
