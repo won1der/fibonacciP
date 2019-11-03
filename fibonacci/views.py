@@ -21,9 +21,9 @@ def calculateFibnacci(n):
 def fibonacci(request):
     if request.method == "POST":
         nth = request.POST.get('nth', 'null')
-        if (nth == 'null'):
-            return HttpResponse('Value of n is incorrect')
         try:
+            if (nth == 'null'):
+                return HttpResponse('Value of n is incorrect')
             start_t=time.time()
             answer = calculateFibnacci(int(nth))
             end_t=time.time()-start_t
