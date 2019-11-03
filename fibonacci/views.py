@@ -2,7 +2,7 @@ from django.http import HttpResponse
 import time
 
 def calculateFibnacci(n):
-    first=1
+    first=0
     second=1
     num = 0
 
@@ -20,8 +20,8 @@ def calculateFibnacci(n):
 
 def fibonacci(request):
     if request.method == "POST":
-        nth = request.POST.get('nth', 'null')
         try:
+            nth = int(request.POST.get('nth', 'null'))
             if (nth == 'null'):
                 return HttpResponse('Value of n is incorrect')
             start_t=time.time()
