@@ -28,7 +28,7 @@ def fibonacci(request):
                 start_t=time.time()
                 answer = calculateFibnacci(n)
                 end_t=time.time()-start_t
-                s=""+nth+"th Fibonacci number is "+str(answer)+".\n Time required in computation is "+str(end_t)+" sec"
+                s=""+nth+"th Fibonacci number is "+str(answer)+".\n Time required in computation is "+str(end_t[:4])+" sec"
                 return HttpResponse(s)
             except ValueError:
                 s="Please enter a number as 'n' argument"
