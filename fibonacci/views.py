@@ -30,7 +30,8 @@ def fibonacci(request):
             s=""+nth+"th Fibonacci number is "+str(answer)+".\n Time required in computation is "+str(end_t)+" sec"
             return HttpResponse(s)
         except ValueError:
-            return "Please enter a number as 'n' argument"
+            s="Please enter a number as 'n' argument"
+            return HttpResponse(s)
 
     else:
         return HttpResponse('Network Problem')
