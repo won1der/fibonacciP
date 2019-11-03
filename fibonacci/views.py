@@ -20,11 +20,11 @@ def calculateFibnacci(n):
 
 def fibonacci(request):
     if request.method == "POST":
-        start_t=time.time()
         nth = request.POST.get('nth', 'null')
         if (nth == 'null'):
             return HttpResponse('Value of n is incorrect')
         try:
+            start_t=time.time()
             answer = calculateFibnacci(int(nth))
             end_t=time.time()-start_t
             s=""+nth+"th Fibonacci number is "+str(answer)+".\n Time required in computation is "+str(end_t)+" sec"
